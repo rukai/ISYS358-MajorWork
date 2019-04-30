@@ -6,8 +6,10 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.view.View;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -35,7 +37,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
     }
 
-
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -50,21 +51,26 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, FINE_LOCATION_PERMISSION_REQUEST_CODE);
 
-        ArrayList<Location> locations = new ArrayList();
-        locations.add(new Location(-33.81527f, 151.28569f, "QStation Wharf"));
-        locations.add(new Location(-33.82322f, 151.29819f, "Fairfax Lookout"));
-        locations.add(new Location(-33.8086f,  151.30299f, "North Head Wastewater Treatment Plant"));
-        locations.add(new Location(-33.80054f, 151.29792f, "Shelly Beach"));
-        locations.add(new Location(-33.81075f, 151.29755f, "The Baracks Precinct"));
-
-
-        for(Location location: locations)
+        for(Location location: Location.locations)
         {
             mMap.addMarker(new MarkerOptions().position(location.latlng).title(location.title));
+            // TODO: The pop up for each location should have a button to add it to the path and a button that opens photos + full information text.
         }
 
         // start the map showing all of north head
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(-33.8107, 151.295), 14));
+    }
+
+    public void openLocationList(View v) {
+        mMap.clear();
+        startActivity(new Intent(this, LocationList.class));
+        // TODO: Lists every location, pressing the location will open it in the map view.
+    }
+
+    public void openPathManager(View v) {
+        mMap.clear();
+        // TODO: Opens a GUI that lists locations in the path.
+        // TODO: Each location has a button to delete it and a button to rearrange its order.
     }
 
     @Override
