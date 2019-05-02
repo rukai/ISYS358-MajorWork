@@ -41,9 +41,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
      * This is where we can add markers or lines, add listeners or move the camera.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -62,13 +59,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     public void openLocationList(View v) {
-        mMap.clear();
         startActivity(new Intent(this, LocationList.class));
         // TODO: Lists every location, pressing the location will open it in the map view.
     }
 
     public void openPathManager(View v) {
-        mMap.clear();
+        Intent intent = new Intent(this, LocationInformation.class);
+        intent.putExtra("location_index", 0);
+        startActivity(intent);
         // TODO: Opens a GUI that lists locations in the path.
         // TODO: Each location has a button to delete it and a button to rearrange its order.
     }
