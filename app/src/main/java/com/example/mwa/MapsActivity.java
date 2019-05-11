@@ -8,6 +8,9 @@ import androidx.fragment.app.FragmentActivity;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 
@@ -15,7 +18,10 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
@@ -24,8 +30,10 @@ import java.util.List;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private List<Marker> markers = new ArrayList();
 
     private static final int FINE_LOCATION_PERMISSION_REQUEST_CODE = 1;
+    private static final int LOCATION_LIST_RESULT = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,17 +58,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         for(Location location: Location.locations)
         {
-            mMap.addMarker(new MarkerOptions().position(location.latlng).title(location.title));
+            MarkerOptions marker = new MarkerOptions()
+                .position(location.latlng)
+                .title(location.title);
+
+            if (location.icon >= 0) {
+                marker.icon(BitmapDescriptorFactory.fromResource(location.icon));
+            }
+
+            markers.add(mMap.addMarker(marker));
             // TODO: The pop up for each location should have a button to add it to the path and a button that opens photos + full information text.
         }
-
         // start the map showing all of north head
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(-33.8107, 151.295), 14));
     }
 
     public void openLocationList(View v) {
-        startActivity(new Intent(this, LocationList.class));
-        // TODO: Lists every location, pressing the location will open it in the map view.
+        startActivityForResult(new Intent(this, LocationList.class), LOCATION_LIST_RESULT);
     }
 
     public void openPathManager(View v) {
@@ -69,6 +83,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         startActivity(intent);
         // TODO: Opens a GUI that lists locations in the path.
         // TODO: Each location has a button to delete it and a button to rearrange its order.
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == LOCATION_LIST_RESULT) {
+            if (resultCode == RESULT_OK) {
+                int location_index = data.getIntExtra("location_index", -1);
+                markers.get(location_index).showInfoWindow();
+            }
+        }
     }
 
     @Override
