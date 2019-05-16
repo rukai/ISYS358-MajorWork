@@ -30,11 +30,12 @@ public class Location {
                 "Urna porttitor rhoncus dolor purus non enim praesent elementum. Quam vulputate dignissim suspendisse in est ante in nibh mauris. Arcu non sodales neque sodales ut. Feugiat nisl pretium fusce id velit. Sit amet commodo nulla facilisi nullam vehicula ipsum. Egestas quis ipsum suspendisse ultrices gravida dictum fusce. Ipsum suspendisse ultrices gravida dictum fusce ut. Donec massa sapien faucibus et molestie. Tristique senectus et netus et malesuada fames. Nunc sed augue lacus viverra vitae congue eu consequat ac. Phasellus vestibulum lorem sed risus ultricies. Et egestas quis ipsum suspendisse ultrices gravida dictum fusce. Cursus mattis molestie a iaculis." +
                 "\n\n" +
                 "At risus viverra adipiscing at in tellus. Duis at tellus at urna condimentum mattis pellentesque id. Pharetra convallis posuere morbi leo urna. Suspendisse in est ante in nibh mauris cursus. Lorem ipsum dolor sit amet consectetur adipiscing elit. Tellus mauris a diam maecenas sed. Ipsum suspendisse ultrices gravida dictum fusce ut. Aliquam purus sit amet luctus venenatis lectus magna fringilla urna. Integer feugiat scelerisque varius morbi enim nunc faucibus a pellentesque. Viverra accumsan in nisl nisi scelerisque. Volutpat commodo sed egestas egestas fringilla phasellus faucibus scelerisque eleifend."),
-            new Location(-33.82322f, 151.29819f, "Fairfax Lookout", R.drawable.qstation_wharf, -1, "Put some text on Fairfax Lookout here!"),
-            new Location(-33.8086f, 151.30299f, "North Head Wastewater Treatment Plant", R.drawable.qstation_wharf, -1, ""),
-            new Location(-33.80054f, 151.29792f, "Shelly Beach", R.drawable.qstation_wharf, -1, ""),
-            new Location(-33.81075f, 151.29755f, "The Barracks Precinct", R.drawable.qstation_wharf, -1, ""),
-            new Location(-33.80035f, 151.28392f, "Manly Wharf", R.drawable.qstation_wharf, R.drawable.marker_ferry, ""),
-            new Location(-33.8017f, 151.29889f, "Penguins I guess", R.drawable.qstation_wharf, R.drawable.marker_penguin, ""),
+            new Location(-33.82322f, 151.29819f, "Fairfax Lookout", R.drawable.fairfax_lookout, -1, "Enjoy the fantastic view of Sydney and the ocean from Fairfax lookout."),
+            new Location(-33.8086f, 151.30299f, "Wastewater Treatment Plant", R.drawable.wastewater_treatment, -1, ""),
+            new Location(-33.80054f, 151.29792f, "Shelly Beach", -1, -1, ""),
+            new Location(-33.81075f, 151.29755f, "Barracks Precinct", R.drawable.barracks, -1, ""),
+            new Location(-33.80035f, 151.28392f, "Manly Wharf", -1, R.drawable.marker_ferry, ""),
+            new Location(-33.8017f, 151.29889f, "Penguins", -1, R.drawable.marker_penguin, ""),
+            new Location(-33.81478f, 151.28826f, "QStation Retreat", R.drawable.qstation_retreat,-1,  ""),
     };
 }

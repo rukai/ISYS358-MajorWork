@@ -28,6 +28,8 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
@@ -42,6 +44,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Very important this is run first, or all the indexes will get messed up!
+        Arrays.sort(Location.locations, new Comparator<Location>() {
+            @Override
+            public int compare(Location o1, Location o2) {
+                return o1.title.compareToIgnoreCase(o2.title);
+            }
+        });
+
         setContentView(R.layout.activity_maps);
 
         LinearLayout locationBar = this.findViewById(R.id.location_bar);
@@ -136,15 +147,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public boolean onMarkerClick(final Marker marker) {
         current_location_index = (int) marker.getTag();
 
+        // rename the location bar
         Location location = Location.locations[current_location_index];
         TextView text = findViewById(R.id.location_name);
         text.setText(location.title);
 
+        // ensure the location bar is visible
         LinearLayout locationBar = this.findViewById(R.id.location_bar);
         locationBar.setVisibility(LinearLayout.VISIBLE);
 
+        // update the location bar image
         ImageView image = findViewById(R.id.image);
-        image.setImageResource(location.image);
+        if (location.image >= 0) {
+            image.setImageResource(location.image);
+        }
+        else {
+            image.setImageResource(android.R.color.transparent);
+        }
 
         // returning false says that we want the default marker click behaviour to still occur.
         return false;

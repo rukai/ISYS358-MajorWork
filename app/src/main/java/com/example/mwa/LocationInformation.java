@@ -28,7 +28,9 @@ public class LocationInformation extends AppCompatActivity {
         TextView text = findViewById(R.id.information_text);
         text.setText(location.information);
 
-        ImageView image = findViewById(R.id.image);
-        image.setImageResource(location.image);
+        if (location.image >= 0) {
+            ImageView image = findViewById(R.id.image);
+            image.setImageResource(location.image);
+        }
     }
 }
