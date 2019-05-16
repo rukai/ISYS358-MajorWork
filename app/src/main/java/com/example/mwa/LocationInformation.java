@@ -26,7 +26,12 @@ public class LocationInformation extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         TextView text = findViewById(R.id.information_text);
-        text.setText(location.information);
+        if (location.information >= 0) {
+            text.setText(location.information);
+        }
+        else {
+            text.setText("");
+        }
 
         if (location.image >= 0) {
             ImageView image = findViewById(R.id.image);
