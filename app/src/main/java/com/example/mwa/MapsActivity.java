@@ -90,7 +90,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if (requestCode == LOCATION_LIST_RESULT) {
             if (resultCode == RESULT_OK) {
                 int location_index = data.getIntExtra("location_index", -1);
+
+                // open the marker window
                 markers.get(location_index).showInfoWindow();
+
+                // center map on the marker
+                Location location = Location.locations[location_index];
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location.latlng, 14));
             }
         }
     }
