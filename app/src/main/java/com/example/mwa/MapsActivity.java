@@ -13,6 +13,9 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -27,10 +30,11 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
     private GoogleMap mMap;
     private List<Marker> markers = new ArrayList();
+    private int current_location_index = -1;
 
     private static final int FINE_LOCATION_PERMISSION_REQUEST_CODE = 1;
     private static final int LOCATION_LIST_RESULT = 1;
@@ -39,9 +43,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
+
+        LinearLayout locationBar = this.findViewById(R.id.location_bar);
+        locationBar.setVisibility(LinearLayout.GONE);
+
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
     }
 
@@ -56,21 +62,26 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, FINE_LOCATION_PERMISSION_REQUEST_CODE);
 
-        for(Location location: Location.locations)
+        for(int i = 0; i < Location.locations.length; i++)
         {
-            MarkerOptions marker = new MarkerOptions()
+            Location location = Location.locations[i];
+            MarkerOptions markerOptions = new MarkerOptions()
                 .position(location.latlng)
                 .title(location.title);
 
             if (location.icon >= 0) {
-                marker.icon(BitmapDescriptorFactory.fromResource(location.icon));
+                markerOptions.icon(BitmapDescriptorFactory.fromResource(location.icon));
             }
 
-            markers.add(mMap.addMarker(marker));
-            // TODO: The pop up for each location should have a button to add it to the path and a button that opens photos + full information text.
+            Marker marker = mMap.addMarker(markerOptions);
+            marker.setTag(i);
+
+            markers.add(marker);
         }
+
         // start the map showing all of north head
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(-33.8107, 151.295), 14));
+        mMap.setOnMarkerClickListener(this);
     }
 
     public void openLocationList(View v) {
@@ -85,6 +96,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // TODO: Each location has a button to delete it and a button to rearrange its order.
     }
 
+    public void openInformation(View v) {
+        Intent intent = new Intent(this, LocationInformation.class);
+        intent.putExtra("location_index", current_location_index);
+        startActivity(intent);
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == LOCATION_LIST_RESULT) {
@@ -97,6 +114,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 // center map on the marker
                 Location location = Location.locations[location_index];
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location.latlng, 14));
+
+                onMarkerClick(markers.get(location_index));
             }
         }
     }
@@ -108,8 +127,26 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.setMyLocationEnabled(true);
             }
             else {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, FINE_LOCATION_PERMISSION_REQUEST_CODE);
+                ActivityCompat.requestPermissions(this, new String[]{ Manifest.permission.ACCESS_FINE_LOCATION }, FINE_LOCATION_PERMISSION_REQUEST_CODE);
             }
         }
+    }
+
+    @Override
+    public boolean onMarkerClick(final Marker marker) {
+        current_location_index = (int) marker.getTag();
+
+        Location location = Location.locations[current_location_index];
+        TextView text = findViewById(R.id.location_name);
+        text.setText(location.title);
+
+        LinearLayout locationBar = this.findViewById(R.id.location_bar);
+        locationBar.setVisibility(LinearLayout.VISIBLE);
+
+        ImageView image = findViewById(R.id.image);
+        image.setImageResource(location.image);
+
+        // returning false says that we want the default marker click behaviour to still occur.
+        return false;
     }
 }
