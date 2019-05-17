@@ -31,5 +31,6 @@ public class Location {
             new Location(-33.80035f, 151.28392f, "Manly Wharf", -1, R.drawable.marker_ferry, -1),
             new Location(-33.8017f, 151.29889f, "Penguins", -1, R.drawable.marker_penguin, -1),
             new Location(-33.81478f, 151.28826f, "QStation Retreat", R.drawable.qstation_retreat,-1,  -1),
+            new Location(-33.81224f, 151.29744f, "North Head Sanctuary Foundation", R.drawable.north_head_sanctuary_foundation, -1, R.string.north_head_sanctuary_foundation),
     };
 }
