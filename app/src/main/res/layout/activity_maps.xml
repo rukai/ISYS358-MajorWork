@@ -2,6 +2,7 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/map_container"
     android:layout_width="match_parent"
@@ -46,6 +47,10 @@
             android:layout_weight="1"
             android:layout_marginTop="0dp"
             android:layout_marginEnd="0dp"
+            map:mapType="hybrid"
+            map:cameraTargetLat="-33.8107"
+            map:cameraTargetLng="151.295"
+            map:cameraZoom="14"
             tools:context=".MapsActivity" />
 
         <LinearLayout
@@ -71,7 +76,7 @@
                     android:id="@+id/location_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20dp"
                     android:text="Location name"
                     android:textSize="20sp"
                     android:textStyle="bold" />

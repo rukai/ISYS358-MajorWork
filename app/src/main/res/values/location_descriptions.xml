@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="fairfax_lookout">Enjoy the fantastic view of Sydney and the ocean from Fairfax lookout.</string>
+    <string name="barracks_precinct_entrance">The barracks precinct is open to the public. Enter through the sandstone archway and explore this heritage listed site.</string>
     <string name="qstation_wharf"></string>
     <string name="wastewater_plant">The North Head Wastewater Plant serves 1 million people. Before environmental action was taken, the wastewater plant dumped sewage from the cliff-face. However since 1991 the sewage is treated and discharged far offshore. This has resulted in far cleaner waters for everyone to enjoy.</string>
     <!-- https://www.sustainabilitymatters.net.au/content/wastewater/article/history-of-wastewater-treatment-in-sydney-311574744-->
     <!-- https://www.sydneywater.com.au/Publications/Reports/AnnualReport/2007/downloads/OceanOutfallAnnualReport.pdf -->
-    <string name="north_head_sanctuary_foundation">The North Head Sanctuary Foundation have a display of various native wildlife and plants. Come in and talk to their knowledgeable people about the sorounding area.</string> <!--http://www.northheadsanctuaryfoundation.org.au/-->
+    <string name="north_head_sanctuary_foundation">The North Head Sanctuary Foundation have a display of various native wildlife and plants. Come in and talk to their knowledgeable people about the surrounding area.</string> <!--http://www.northheadsanctuaryfoundation.org.au/-->
 </resources>

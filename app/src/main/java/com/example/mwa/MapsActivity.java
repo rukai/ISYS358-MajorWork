@@ -90,8 +90,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             markers.add(marker);
         }
 
-        // start the map showing all of north head
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(-33.8107, 151.295), 14));
         mMap.setOnMarkerClickListener(this);
     }
 
