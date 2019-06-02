@@ -3,8 +3,19 @@
     <string name="fairfax_lookout">Enjoy the fantastic view of Sydney and the ocean from Fairfax lookout.</string>
     <string name="barracks_precinct_entrance">The barracks precinct is open to the public. Enter through the sandstone archway and explore this heritage listed site.</string>
     <string name="qstation_wharf"></string>
+    <string name="whales">Whales have been sighted in the nearby ocean before. You never know what you might see.</string>
     <string name="wastewater_plant">The North Head Wastewater Plant serves 1 million people. Before environmental action was taken, the wastewater plant dumped sewage from the cliff-face. However since 1991 the sewage is treated and discharged far offshore. This has resulted in far cleaner waters for everyone to enjoy.</string>
     <!-- https://www.sustainabilitymatters.net.au/content/wastewater/article/history-of-wastewater-treatment-in-sydney-311574744-->
     <!-- https://www.sydneywater.com.au/Publications/Reports/AnnualReport/2007/downloads/OceanOutfallAnnualReport.pdf -->
     <string name="north_head_sanctuary_foundation">The North Head Sanctuary Foundation have a display of various native wildlife and plants. Come in and talk to their knowledgeable people about the surrounding area.</string> <!--http://www.northheadsanctuaryfoundation.org.au/-->
+    <string name="esbs_1_01">Wallum Banksia</string><!--Try to spot these native plantlife.-->
+    <string name="esbs_1_02">Cranberry Heath</string>
+    <string name="esbs_1_03">Grey Spider Flower</string>
+    <string name="esbs_1_04">Heath Leaved Banksia</string>
+    <string name="esbs_1_05">Scrub She Oak</string>
+    <string name="esbs_1_06">Grass Tree</string>
+    <string name="esbs_1_07">Mountain Devil</string>
+    <string name="esbs_1_08">Flannel Flower</string>
+    <string name="esbs_1_09">Red Spider Flower</string>
+    <string name="esbs_1_10">Woollsia</string>
 </resources>

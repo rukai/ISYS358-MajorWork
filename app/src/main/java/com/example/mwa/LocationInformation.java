@@ -10,6 +10,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class LocationInformation extends AppCompatActivity {
@@ -25,17 +26,28 @@ public class LocationInformation extends AppCompatActivity {
         toolbar.setTitle(location.title);
         setSupportActionBar(toolbar);
 
-        TextView text = findViewById(R.id.information_text);
-        if (location.information >= 0) {
-            text.setText(location.information);
-        }
-        else {
-            text.setText("");
-        }
+        LinearLayout linearLayout = findViewById(R.id.information_layout);
+        int length = Math.max(location.information.length, location.image.length);
+        for (int i = 0; i < length; i++) {
+            LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            textParams.setMargins(30, 30, 30, 30);
 
-        if (location.image >= 0) {
-            ImageView image = findViewById(R.id.image);
-            image.setImageResource(location.image);
+            LinearLayout.LayoutParams imageParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+
+            if (i < location.information.length) {
+                TextView text = new TextView(this);
+                text.setLayoutParams(textParams);
+                text.setText(location.information[i]);
+                linearLayout.addView(text);
+            }
+
+            if (i < location.image.length) {
+                ImageView image = new ImageView(this);
+                image.setLayoutParams(imageParams);
+                image.setAdjustViewBounds(true);
+                image.setImageResource(location.image[i]);
+                linearLayout.addView(image);
+            }
         }
     }
 }

@@ -43,6 +43,10 @@
             android:name=".LocationInformation"
             android:label="Location"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".PlantInformation"
+            android:label="Location"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

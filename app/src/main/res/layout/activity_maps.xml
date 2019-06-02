@@ -34,6 +34,19 @@
         android:onClick="openPathManager"
         android:src="@android:drawable/ic_delete" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton3"
+        android:layout_width="43dp"
+        android:layout_height="41dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="174dp"
+        android:layout_marginEnd="6dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="openPlantInformation"
+        android:src="@android:drawable/ic_delete" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
