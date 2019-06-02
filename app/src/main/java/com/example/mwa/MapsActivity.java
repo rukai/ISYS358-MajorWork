@@ -8,9 +8,7 @@ import androidx.fragment.app.FragmentActivity;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -21,9 +19,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -101,6 +97,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Intent intent = new Intent(this, LocationInformation.class);
         intent.putExtra("location_index", 0);
         startActivity(intent);
+
         // TODO: Opens a GUI that lists locations in the path.
         // TODO: Each location has a button to delete it and a button to rearrange its order.
     }
@@ -108,6 +105,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void openInformation(View v) {
         Intent intent = new Intent(this, LocationInformation.class);
         intent.putExtra("location_index", current_location_index);
+        startActivity(intent);
+    }
+
+    public void openDirections(View v) {
+        Location location = Location.locations[current_location_index];
+        Uri uri = Uri.parse("google.navigation:q=" + location.latlng.latitude + "," + location.latlng.longitude + "&mode=w");
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        intent.setPackage("com.google.android.apps.maps");
         startActivity(intent);
     }
 
