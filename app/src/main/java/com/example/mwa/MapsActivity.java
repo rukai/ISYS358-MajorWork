@@ -45,13 +45,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Very important this is run first, or all the indexes will get messed up!
-        Arrays.sort(Location.locations, new Comparator<Location>() {
-            @Override
-            public int compare(Location o1, Location o2) {
-                return o1.title.compareToIgnoreCase(o2.title);
-            }
-        });
+        Location.Init();
 
         setContentView(R.layout.activity_maps);
 

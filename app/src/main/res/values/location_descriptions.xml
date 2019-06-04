@@ -18,4 +18,25 @@
     <string name="esbs_1_08">Flannel Flower</string>
     <string name="esbs_1_09">Red Spider Flower</string>
     <string name="esbs_1_10">Woollsia</string>
+    <string name="esbs_2_01">Heath Banksia</string><!--Try to spot these native plantlife.-->
+    <string name="esbs_2_02">Darwinia</string>
+    <string name="esbs_2_03">Grey Spider Flower</string>
+    <string name="esbs_2_04">Fuschia Heath</string>
+    <string name="esbs_2_05">Eggs and Bacon</string>
+    <string name="esbs_2_06">Crowea</string>
+    <string name="esbs_2_07">Pink Kunzea</string>
+    <string name="esbs_2_08">Flannel Flower</string>
+    <string name="esbs_2_09">Sunshine Wattle</string>
+    <string name="esbs_3_01">Pouched Coral Fern</string><!--Try to spot these native plantlife.-->
+    <string name="esbs_3_02">Bloodroot</string>
+    <string name="esbs_3_03">Crimson Bottlebrush</string>
+    <string name="esbs_3_04">Bracelet Honeymyrtle</string>
+    <string name="esbs_3_05">Forked Comb Fern</string>
+    <string name="esbs_3_06">Wallum Banksia</string>
+    <string name="esbs_3_07">Oval-leafed Smokebush</string>
+    <string name="esbs_3_08">Red-fruit Saw-sedge</string>
+    <string name="esbs_3_09">Dagger Hakea</string>
+    <string name="esbs_3_10">Spiny-headed Matt-rush</string>
+    <string name="esbs_3_11">Blunt-leaf Heath</string>
+    <string name="esbs_3_12">Fuschia Heath</string>
 </resources>
