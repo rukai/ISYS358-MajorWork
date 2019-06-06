@@ -26,18 +26,26 @@ public class LocationInformation extends AppCompatActivity {
         toolbar.setTitle(location.title);
         setSupportActionBar(toolbar);
 
+        LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        textParams.setMargins(30, 30, 30, 30);
+        LinearLayout.LayoutParams imageParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+
         LinearLayout linearLayout = findViewById(R.id.information_layout);
-        int length = Math.max(location.information.length, location.image.length);
+        if (location.information != -1) {
+            TextView text = new TextView(this);
+            text.setLayoutParams(textParams);
+            text.setText(location.information);
+            text.setTextSize(15);
+            linearLayout.addView(text);
+        }
+
+        int length = Math.max(location.image_title.length, location.image.length);
         for (int i = 0; i < length; i++) {
-            LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            textParams.setMargins(30, 30, 30, 30);
-
-            LinearLayout.LayoutParams imageParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-
-            if (i < location.information.length) {
+            if (i < location.image_title.length) {
                 TextView text = new TextView(this);
                 text.setLayoutParams(textParams);
-                text.setText(location.information[i]);
+                text.setText(location.image_title[i]);
+                text.setTextSize(25);
                 linearLayout.addView(text);
             }
 
