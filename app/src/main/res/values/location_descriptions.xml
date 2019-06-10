@@ -2,6 +2,8 @@
 <resources>
     <string name="fairfax_lookout">Enjoy the fantastic view of Sydney and the ocean from Fairfax lookout.</string>
     <string name="barracks_precinct_entrance">The barracks precinct is open to the public. Enter through the sandstone archway and explore this heritage listed site.</string>
+    <string name="manly_wharf"></string>
+    <string name="qstation_retreat"></string>
     <string name="qstation_wharf"></string>
     <string name="whales">Whales have been sighted in the nearby ocean before. You never know what you might see.</string>
     <string name="wastewater_plant">The North Head Wastewater Plant serves 1 million people. Before environmental action was taken, the wastewater plant dumped sewage from the cliff-face. However since 1991 the sewage is treated and discharged far offshore. This has resulted in far cleaner waters for everyone to enjoy.</string>

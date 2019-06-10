@@ -83,11 +83,11 @@ public class Location {
             new Location(-33.80054f, 151.29792f, "Shelly Beach", -1, new int[] {}, -1, new int[] {}),
             new Location(-33.81002f, 151.29739f, "Barracks Precinct Entrance", R.string.barracks_precinct_entrance, new int[] {R.drawable.barracks}, -1, new int[] {}),
             new Location(-33.81075f, 151.29755f, "Parade Ground", -1, new int[] {R.drawable.parade_ground}, -1, new int[] {}),
-            new Location(-33.80035f, 151.28392f, "Manly Wharf", -1, new int[] {}, R.drawable.marker_ferry, new int[] {}),
+            new Location(-33.80035f, 151.28392f, "Manly Wharf", R.string.manly_wharf, new int[] {}, R.drawable.marker_ferry, new int[] {}),
             new Location(-33.80802f, 151.29091f, "Penguins", -1, new int[] {}, R.drawable.marker_penguin, new int[] {}),
             //new Location(-33.80846f, 151.29134f, "Penguins", -1, new int[] {}, R.drawable.marker_penguin, new int[] {}), // causes penguins to show up twice on the location list.
             new Location(-33.8276f,  151.29586f, "Whales", R.string.whales, new int[] {R.drawable.whale}, R.drawable.marker_whale, new int[] {}),
-            new Location(-33.81478f, 151.28826f, "QStation Retreat", -1, new int[] {R.drawable.qstation_retreat},-1,  new int[] {}),
+            new Location(-33.81478f, 151.28826f, "QStation Retreat", R.string.qstation_retreat, new int[] {R.drawable.qstation_retreat},-1,  new int[] {}),
             new Location(-33.81224f, 151.29744f, "Bandicoot Heaven", R.string.north_head_sanctuary_foundation, new int[] {R.drawable.north_head_sanctuary_foundation}, -1, new int[] {}),
             new Location(-33.80822f, 151.28888f, "Jump Rock", -1, new int[] {R.drawable.jump_rock}, -1, new int[] {}),
             new Location(-33.81752f, 151.29597f, "Visitor Centre", -1, new int[] {}, -1, new int[] {}),
