@@ -127,7 +127,7 @@ public class Location {
                 },
                 0xffd42828,
                 "Central Walk",
-                -1,
+                R.string.esbs_walk,
                 new int[] { R.drawable.esbs_1_01, R.drawable.esbs_1_02, R.drawable.esbs_1_03, R.drawable.esbs_1_04, R.drawable.esbs_1_05, R.drawable.esbs_1_06, R.drawable.esbs_1_07, R.drawable.esbs_1_08, R.drawable.esbs_1_09, R.drawable.esbs_1_10 },
                 new int[] { R.string.esbs_1_01, R.string.esbs_1_02, R.string.esbs_1_03, R.string.esbs_1_04, R.string.esbs_1_05, R.string.esbs_1_06, R.string.esbs_1_07, R.string.esbs_1_08, R.string.esbs_1_09, R.string.esbs_1_10 }
             ),
@@ -194,7 +194,7 @@ public class Location {
                 },
                 0xff2854d4,
                 "Shelly Beach Walk",
-                    -1,
+                    R.string.esbs_walk,
                     new int[] { R.drawable.esbs_2_01, R.drawable.esbs_2_02, R.drawable.esbs_2_03, R.drawable.esbs_2_04, R.drawable.esbs_2_05, R.drawable.esbs_2_06, R.drawable.esbs_2_07, R.drawable.esbs_2_08, R.drawable.esbs_2_09 },
                     new int[] { R.string.esbs_2_01, R.string.esbs_2_02, R.string.esbs_2_03, R.string.esbs_2_04, R.string.esbs_2_05, R.string.esbs_2_06, R.string.esbs_2_07, R.string.esbs_2_08, R.string.esbs_2_09 }
             ),
@@ -231,7 +231,7 @@ public class Location {
                     },
                     0xfff471fa,
                     "Hanging Swamp Walk",
-                    -1,
+                    R.string.esbs_walk,
                     new int[] { R.drawable.esbs_3_01, R.drawable.esbs_3_02, R.drawable.esbs_3_03, R.drawable.esbs_3_04, R.drawable.esbs_3_05, R.drawable.esbs_3_06, R.drawable.esbs_3_07, R.drawable.esbs_3_08, R.drawable.esbs_3_09, R.drawable.esbs_3_10, R.drawable.esbs_3_11, R.drawable.esbs_3_12 },
                     new int[] { R.string.esbs_3_01, R.string.esbs_3_02, R.string.esbs_3_03, R.string.esbs_3_04, R.string.esbs_3_05, R.string.esbs_3_06, R.string.esbs_3_07, R.string.esbs_3_08, R.string.esbs_3_09, R.string.esbs_3_10, R.string.esbs_3_11, R.string.esbs_3_12 }
                 ),
