@@ -1,4 +1,4 @@
-package com.example.mwa;
+package team19.apps.mwa;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;

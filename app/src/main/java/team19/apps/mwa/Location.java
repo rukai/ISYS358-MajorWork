@@ -1,4 +1,4 @@
-package com.example.mwa;
+package team19.apps.mwa;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
