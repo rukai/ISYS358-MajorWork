@@ -22,18 +22,21 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polygon;
+import com.google.android.gms.maps.model.PolygonOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener, GoogleMap.OnPolylineClickListener {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener, GoogleMap.OnPolylineClickListener, GoogleMap.OnPolygonClickListener {
 
     private GoogleMap mMap;
     private List<Object> mapItems = new ArrayList();
     private List<Marker> markers = new ArrayList();
     private List<Polyline> lines = new ArrayList();
+    private List<Polygon> polygons = new ArrayList();
     private int current_location_index = -1;
 
     private static final int FINE_LOCATION_PERMISSION_REQUEST_CODE = 1;
@@ -76,6 +79,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 lines.add(line);
                 mapItems.add(line);
             }
+            else if (location.options instanceof PolygonOptions) {
+                Polygon polygon = mMap.addPolygon((PolygonOptions) location.options);
+                polygon.setTag(i);
+
+                polygons.add(polygon);
+                mapItems.add(polygon);
+            }
             else if (location.options instanceof MarkerOptions) {
                 MarkerOptions markerOptions = (MarkerOptions) location.options;
 
@@ -93,19 +103,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         mMap.setOnMarkerClickListener(this);
         mMap.setOnPolylineClickListener(this);
+        mMap.setOnPolygonClickListener(this);
     }
 
     public void openLocationList(View v) {
         startActivityForResult(new Intent(this, LocationList.class), LOCATION_LIST_RESULT);
-    }
-
-    public void openPathManager(View v) {
-        Intent intent = new Intent(this, LocationInformation.class);
-        intent.putExtra("location_index", 0);
-        startActivity(intent);
-
-        // TODO: Opens a GUI that lists locations in the path.
-        // TODO: Each location has a button to delete it and a button to rearrange its order.
     }
 
     public void openInformation(View v) {
@@ -183,6 +185,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onPolylineClick(final Polyline line) {
         current_location_index = (int) line.getTag();
+        onLocationClick();
+    }
+
+    @Override
+    public void onPolygonClick(final Polygon polygon) {
+        current_location_index = (int) polygon.getTag();
         onLocationClick();
     }
 }

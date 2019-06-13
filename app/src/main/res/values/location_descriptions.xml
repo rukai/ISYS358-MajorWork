@@ -2,13 +2,16 @@
 <resources>
     <string name="fairfax_lookout">Enjoy the fantastic view of Sydney and the ocean from Fairfax lookout.</string>
     <string name="barracks_precinct_entrance">The barracks precinct is open to the public. Enter through the sandstone archway and explore this heritage listed site.</string>
+    <string name="parade_ground">Built in 1938, the parade ground was used by the military.</string>
     <string name="manly_wharf">Coming from sydney? The scenic ferry trip is a great way to get to north head.</string>
     <string name="qstation_retreat">This area used to be known as the Quarantine Station.
 From the 1830s to 1984, passengers from arriving ships suspected of containing contagious diseases had to stay here.
 Today it has been renamed to the QStation and is used as hotel accommodation and is open to the public.
 </string>
     <string name="qstation_wharf"></string>
+    <string name="world_surfing_reserve"></string>
     <string name="whales">Whales have been sighted in the nearby ocean before. You never know what you might see.</string>
+    <string name="penguins">A small colony of Little Penguins come to manly each year to breed between May and February. They are approximately 30-35cm tall and 1kg in weight. They are a protected species, so if you see them, do not approach them.</string>
     <string name="wastewater_plant">The North Head Wastewater Plant serves 1 million people. Before environmental action was taken, the wastewater plant dumped sewage from the cliff-face. However since 1991 the sewage is treated and discharged far offshore. This has resulted in far cleaner waters for everyone to enjoy.</string>
     <!-- https://www.sustainabilitymatters.net.au/content/wastewater/article/history-of-wastewater-treatment-in-sydney-311574744-->
     <!-- https://www.sydneywater.com.au/Publications/Reports/AnnualReport/2007/downloads/OceanOutfallAnnualReport.pdf -->
